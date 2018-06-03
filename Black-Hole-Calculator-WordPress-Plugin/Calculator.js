@@ -18,12 +18,14 @@
             var results = PerformCalculations(mbh, mSeed);
 
             $("#eddingtonLuminosity").html(results.eddingtonLuminosity);
+            $("#eddingtonRate").html(results.eddingtonRate);
         });
 
-        function PerformCalculations(bhm, mSeed)
+        function PerformCalculations(mbh, mSeed)
         {
             return {
-                eddingtonLuminosity: 3.2e4 * mbh
+                eddingtonLuminosity: 3.2e4 * mbh,
+                eddingtonRate: 2.2e-8 * mbh
             };
         }
     });
