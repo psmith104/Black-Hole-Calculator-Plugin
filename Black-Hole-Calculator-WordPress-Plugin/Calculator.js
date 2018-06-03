@@ -1,9 +1,11 @@
 (function ($) {
-    $("#simple").on("click", function () {
-        $("[data-advanced]").attr("data-advanced", false);
-    });
+    $(function () {
+        $("#simple").on("click", function () {
+            $("[data-advanced]").data("advanced", false);
+        });
 
-    $("#advanced").on("click", function () {
-        $("[data-advanced]").attr("data-advanced", true);
+        $("#advanced").on("click", function () {
+            $("[data-advanced]").data("advanced", true);
+        });
     });
 }) (jQuery)
