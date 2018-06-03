@@ -1,6 +1,6 @@
 (function ($) {
     $(function () {
-        $("#simple").on("change", function () {
+        $("#standard").on("change", function () {
             $("[data-advanced]").attr("data-advanced", false);
         });
 
