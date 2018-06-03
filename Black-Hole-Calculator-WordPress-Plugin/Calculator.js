@@ -10,7 +10,7 @@
             $("[data-advanced]").attr("data-advanced", true);
         });
 
-        $("calculate-button").on("click", function ()
+        $("#calculate-button").on("click", function ()
         {
             var mbh = $("#blackHoleMass").val();
             var mSeed = $("[data-advanced]").attr("data-advanced") ? $("#massOfSeed").val() : null;
