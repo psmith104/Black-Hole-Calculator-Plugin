@@ -23,7 +23,7 @@
         function PerformCalculations(bhm, mSeed)
         {
             return {
-                eddingtonLuminosity = 3.2e4 * mbh
+                eddingtonLuminosity: 3.2e4 * mbh
             };
         }
     });
