@@ -21,8 +21,8 @@
 
             var results = PerformCalculations(mbh, mSeed);
 
-            $("#results-standard").removeClass("d-none");
-            if (advanced) $("#results-advanced").removeClass("d-none");
+            $(".results-standard").removeClass("d-none");
+            if (advanced) $(".results-advanced").removeClass("d-none");
 
             $("#eddingtonLuminosity").html(results.eddingtonLuminosity);
             $("#eddingtonLuminosity-cgs").html(results.eddingtonLuminosity_cgs);
@@ -45,7 +45,7 @@
             else
             {
                 $advancedInputs.addClass("d-none");
-                $("#results-advanced").addClass("d-none");
+                $(".results-advanced").addClass("d-none");
             }
         }
         function PerformCalculations(mbh, mSeed = 1)
