@@ -40,11 +40,11 @@
             var $advancedInputs = $(".input-advanced");
             if (advanced)
             {
-                $advanceInputs.removeClass("d-none");
+                $advancedInputs.removeClass("d-none");
             }
             else
             {
-                $advanceInputs.addClass("d-none");
+                $advancedInputs.addClass("d-none");
                 $(".results-advanced").addClass("d-none");
             }
         }
