@@ -1,23 +1,29 @@
 (function ($) {
     $(function () {
+        var advanced = false;
+
         $("#standard").on("change", function ()
         {
-            $("[data-advanced]").attr("data-advanced", false);
+            advanced = false;
+            ShowInputs();
         });
 
         $("#advanced").on("change", function ()
         {
-            $("[data-advanced]").attr("data-advanced", true);
+            advanced = true;
+            ShowInputs();
         });
 
         $("#calculate-button").on("click", function ()
         {
             var mbh = $("#blackHoleMass").val();
-            var mSeed = $("[data-advanced]").attr("data-advanced") ? $("#massOfSeed").val() : null;
+            var mSeed = advanced ? $("#massOfSeed").val() : null;
 
             var results = PerformCalculations(mbh, mSeed);
 
-            $("#results").removeClass("d-none");
+            $("#results-standard").removeClass("d-none");
+            if (advanced) $("#results-advanced").removeClass("d-none");
+
             $("#eddingtonLuminosity").html(results.eddingtonLuminosity);
             $("#eddingtonLuminosity-cgs").html(results.eddingtonLuminosity_cgs);
             $("#eddingtonRate").html(results.eddingtonRate);
@@ -30,6 +36,18 @@
             $("#evaporationTime-cgs").html(results.evaporationTime_cgs);
         });
 
+        function ShowInputs() {
+            var $advancedInputs = $(".input-advanced");
+            if (advanced)
+            {
+                $advanceInputs.removeClass("d-none");
+            }
+            else
+            {
+                $advanceInputs.addClass("d-none");
+                $(".results-advanced").addClass("d-none");
+            }
+        }
         function PerformCalculations(mbh, mSeed = 1)
         {
             return {

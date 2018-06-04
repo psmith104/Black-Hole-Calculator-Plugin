@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="container-fluid">
-            <div class="form-group row">
+            <div class="form-group row input-standard">
                 <label for="blackHoleMass" class="col-sm-2 col-form-label">Black Hole Mass (Solar Masses)</label>
                 <div class="input-group  col-sm-10 mb-3">
                     <input type="text" class="form-control" id="blackHoleMass">
@@ -23,7 +23,7 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group row" data-advanced="false">
+            <div class="form-group row input-advanced d-none">
                 <label for="massOfSeed" class="col-sm-2 col-form-label">Mass of the seed (Solar Masses)</label>
                 <div class="input-group  col-sm-10 mb-3">
                     <input type="text" class="form-control" id="massOfSeed">
@@ -39,7 +39,7 @@
             </div>
         </div>
     </div>
-    <div id="results" class="d-none">
+    <div id="results-standard" class="d-none">
         <div class="container-fluid">
             Eddington luminosity:
             <div class="row">
@@ -73,7 +73,9 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid" data-advanced="false">
+    </div>
+    <div id="results-advanced" class="d-none">
+        <div class="container-fluid">
             Time to form (assuming continuous accretion at the Eddington rate):
             <div class="row">
                 <div class="col-6">
@@ -84,7 +86,7 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid" data-advanced="false">
+        <div class="container-fluid">
             Evaporation time:
             <div class="row">
                 <div class="col-6">

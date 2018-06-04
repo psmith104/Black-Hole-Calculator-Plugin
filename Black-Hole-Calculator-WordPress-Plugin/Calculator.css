@@ -1,7 +1,3 @@
 .bootstrap-iso .input-group {
     align-items: center;
 }
-
-[data-advanced=false] {
-    display: none !important;
-}
