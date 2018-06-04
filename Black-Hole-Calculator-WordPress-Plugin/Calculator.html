@@ -1,96 +1,98 @@
 <section class="bootstrap-iso">
-    <div class="container-fluid">
-        <p class="text-center">Some instructions</p>
-        <div class="col-12">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-secondary active">
-                    <input type="radio" name="options" id="standard" checked>Standard
-                </label>
-                <label class="btn btn-secondary">
-                    <input type="radio" name="options" id="advanced">Advanced
-                </label>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="form-group row">
-            <label for="blackHoleMass" class="col-sm-2 col-form-label">Black Hole Mass (Solar Masses)</label>
-            <div class="input-group  col-sm-10 mb-3">
-                <input type="text" class="form-control" id="blackHoleMass">
-                <div class="input-group-append">
-                    <span class="input-group-text">MBH</span>
+    <div>
+        <div class="container-fluid">
+            <p class="text-center">Some instructions</p>
+            <div class="col-12">
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-secondary active">
+                        <input type="radio" name="options" id="standard" checked>Standard
+                    </label>
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="options" id="advanced">Advanced
+                    </label>
                 </div>
             </div>
         </div>
-        <div class="form-group row" data-advanced="false">
-            <label for="massOfSeed" class="col-sm-2 col-form-label">Mass of the seed (Solar Masses)</label>
-            <div class="input-group  col-sm-10 mb-3">
-                <input type="text" class="form-control" id="massOfSeed">
-                <div class="input-group-append">
-                    <span class="input-group-text">M<sub>seed</sub></span>
+        <div class="container-fluid">
+            <div class="form-group row">
+                <label for="blackHoleMass" class="col-sm-2 col-form-label">Black Hole Mass (Solar Masses)</label>
+                <div class="input-group  col-sm-10 mb-3">
+                    <input type="text" class="form-control" id="blackHoleMass">
+                    <div class="input-group-append">
+                        <span class="input-group-text">MBH</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row" data-advanced="false">
+                <label for="massOfSeed" class="col-sm-2 col-form-label">Mass of the seed (Solar Masses)</label>
+                <div class="input-group  col-sm-10 mb-3">
+                    <input type="text" class="form-control" id="massOfSeed">
+                    <div class="input-group-append">
+                        <span class="input-group-text">M<sub>seed</sub></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-right">
+                    <button type="button" id="calculate-button">Calculate</button>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 text-right">
-                <button type="button" id="calculate-button">Calculate</button>
+    </div>
+    <div id="results" class="d-none">
+        <div class="container-fluid">
+            Eddington luminosity:
+            <div class="row">
+                <div class="col-6">
+                    <span id="eddingtonLuminosity"></span> (L<sub>&#9737;</sub>)
+                </div>
+                <div class="col-6">
+                    <span id="eddingtonLuminosity-cgs"></span> (erg s<sup>-1</sup>)
+                </div>
             </div>
         </div>
-    </div>
-</section>
-<section id="results" class="d-none">
-    <div class="container-fluid">
-        Eddington luminosity:
-        <div class="row">
-            <div class="col-6">
-                <span id="eddingtonLuminosity"></span> (L<sub>&#9737;</sub>)
-            </div>
-            <div class="col-6">
-                <span id="eddingtonLuminosity-cgs"></span> (erg s<sup>-1</sup>)
+        <div class="container-fluid">
+            Eddington rate:
+            <div class="row">
+                <div class="col-6">
+                    <span id="eddingtonRate"></span> (M<sub>&#9737;</sub> yr<sup>-1</sup>)
+                </div>
+                <div class="col-6">
+                    <span id="eddingtonRate-cgs"></span> (g s<sup>-1</sup>)
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container-fluid">
-        Eddington rate:
-        <div class="row">
-            <div class="col-6">
-                <span id="eddingtonRate"></span> (M<sub>&#9737;</sub> yr<sup>-1</sup>)
-            </div>
-            <div class="col-6">
-                <span id="eddingtonRate-cgs"></span> (g s<sup>-1</sup>)
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        Event horizon radius:
-        <div class="row">
-            <div class="col-6">
-                <span id="eventHorizonRadius"></span> (km)
-            </div>
-            <div class="col-6">
-                <span id="eventHorizonRadius-cgs"></span> (cm)
+        <div class="container-fluid">
+            Event horizon radius:
+            <div class="row">
+                <div class="col-6">
+                    <span id="eventHorizonRadius"></span> (km)
+                </div>
+                <div class="col-6">
+                    <span id="eventHorizonRadius-cgs"></span> (cm)
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container-fluid" data-advanced="false">
-        Time to form (assuming continuous accretion at the Eddington rate):
-        <div class="row">
-            <div class="col-6">
-                <span id="timeToForm"></span> (Gyr)
-            </div>
-            <div class="col-6">
-                <span id="timeToForm-cgs"></span> (s)
+        <div class="container-fluid" data-advanced="false">
+            Time to form (assuming continuous accretion at the Eddington rate):
+            <div class="row">
+                <div class="col-6">
+                    <span id="timeToForm"></span> (Gyr)
+                </div>
+                <div class="col-6">
+                    <span id="timeToForm-cgs"></span> (s)
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container-fluid" data-advanced="false">
-        Evaporation time:
-        <div class="row">
-            <div class="col-6">
-                <span id="evaporationTime"></span> (Gyr)
-            </div>
-            <div class="col-6">
-                <span id="evaporationTime-cgs"></span> (s)
+        <div class="container-fluid" data-advanced="false">
+            Evaporation time:
+            <div class="row">
+                <div class="col-6">
+                    <span id="evaporationTime"></span> (Gyr)
+                </div>
+                <div class="col-6">
+                    <span id="evaporationTime-cgs"></span> (s)
+                </div>
             </div>
         </div>
     </div>
