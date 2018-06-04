@@ -45,7 +45,7 @@
             else
             {
                 $advancedInputs.addClass("d-none");
-                $(".results-advanced").addClass("d-none");
+                $("#results-advanced").addClass("d-none");
             }
         }
         function PerformCalculations(mbh, mSeed = 1)
