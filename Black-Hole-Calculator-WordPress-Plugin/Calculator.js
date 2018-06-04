@@ -17,7 +17,7 @@
 
             var results = PerformCalculations(mbh, mSeed);
 
-            $("#results").removeClass("hidden");
+            $("#results").removeClass("d-none");
             $("#eddingtonLuminosity").html(results.eddingtonLuminosity);
             $("#eddingtonLuminosity-cgs").html(results.eddingtonLuminosity_cgs);
             $("#eddingtonRate").html(results.eddingtonRate);
