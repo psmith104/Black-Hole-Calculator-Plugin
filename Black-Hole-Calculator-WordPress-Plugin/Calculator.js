@@ -67,8 +67,8 @@
 
         function ShowResult(selector, result) {
             var formattedResult = result.toExponential(5);
-            formattedResult.replace("e", " x 10^");
-            formattedResult.replace("+", "");
+            formattedResult = formattedResult.replace("e", " x 10^");
+            formattedResult = formattedResult.replace("+", "");
             $(selector).html(formattedResult);
         }
     });
