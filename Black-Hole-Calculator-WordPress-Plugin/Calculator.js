@@ -24,16 +24,16 @@
             $(".results-standard").removeClass("d-none");
             if (advanced) $(".results-advanced").removeClass("d-none");
 
-            $("#eddingtonLuminosity").html(results.eddingtonLuminosity.toExponential(5));
-            $("#eddingtonLuminosity-cgs").html(results.eddingtonLuminosity_cgs.toExponential(5));
-            $("#eddingtonRate").html(results.eddingtonRate.toExponential(5));
-            $("#eddingtonRate-cgs").html(results.eddingtonRate_cgs.toExponential(5));
-            $("#eventHorizonRadius").html(results.eventHorizonRadius.toExponential(5));
-            $("#eventHorizonRadius-cgs").html(results.eventHorizonRadius_cgs.toExponential(5));
-            $("#timeToForm").html(results.timeToForm.toExponential(5));
-            $("#timeToForm-cgs").html(results.timeToForm_cgs.toExponential(5));
-            $("#evaporationTime").html(results.evaporationTime.toExponential(5));
-            $("#evaporationTime-cgs").html(results.evaporationTime_cgs.toExponential(5));
+            ShowResult("#eddingtonLuminosity", results.eddingtonLuminosity);
+            ShowResult("#eddingtonLuminosity-cgs", results.eddingtonLuminosity_cgs);
+            ShowResult("#eddingtonRate", results.eddingtonRate);
+            ShowResult("#eddingtonRate-cgs", results.eddingtonRate_cgs);
+            ShowResult("#eventHorizonRadius", results.eventHorizonRadius);
+            ShowResult("#eventHorizonRadius-cgs", results.eventHorizonRadius_cgs);
+            ShowResult("#timeToForm", results.timeToForm);
+            ShowResult("#timeToForm-cgs", results.timeToForm_cgs);
+            ShowResult("#evaporationTime", results.evaporationTime);
+            ShowResult("#evaporationTime-cgs", results.evaporationTime_cgs);
         });
 
         function ShowInputs() {
@@ -48,6 +48,7 @@
                 $(".results-advanced").addClass("d-none");
             }
         }
+
         function PerformCalculations(mbh, mSeed = 1)
         {
             return {
@@ -62,6 +63,10 @@
                 evaporationTime: Math.pow(2.74606799e-43 * (mbh * 1.989e33), 3),
                 evaporationTime_cgs: Math.pow(8.66e-27 * (mbh * 1.989e33), 3)
             };
+        }
+
+        function ShowResult(selector, result) {
+            $(selector).html(result.toExponential(5));
         }
     });
 }) (jQuery)
