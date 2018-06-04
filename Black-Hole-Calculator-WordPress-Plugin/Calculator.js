@@ -24,16 +24,16 @@
             $(".results-standard").removeClass("d-none");
             if (advanced) $(".results-advanced").removeClass("d-none");
 
-            $("#eddingtonLuminosity").html(results.eddingtonLuminosity);
-            $("#eddingtonLuminosity-cgs").html(results.eddingtonLuminosity_cgs);
-            $("#eddingtonRate").html(results.eddingtonRate);
-            $("#eddingtonRate-cgs").html(results.eddingtonRate_cgs);
-            $("#eventHorizonRadius").html(results.eventHorizonRadius);
-            $("#eventHorizonRadius-cgs").html(results.eventHorizonRadius_cgs);
-            $("#timeToForm").html(results.timeToForm);
-            $("#timeToForm-cgs").html(results.timeToForm_cgs);
-            $("#evaporationTime").html(results.evaporationTime);
-            $("#evaporationTime-cgs").html(results.evaporationTime_cgs);
+            $("#eddingtonLuminosity").html(results.eddingtonLuminosity.toExponential(5));
+            $("#eddingtonLuminosity-cgs").html(results.eddingtonLuminosity_cgs.toExponential(5));
+            $("#eddingtonRate").html(results.eddingtonRate.toExponential(5));
+            $("#eddingtonRate-cgs").html(results.eddingtonRate_cgs.toExponential(5));
+            $("#eventHorizonRadius").html(results.eventHorizonRadius.toExponential(5));
+            $("#eventHorizonRadius-cgs").html(results.eventHorizonRadius_cgs.toExponential(5));
+            $("#timeToForm").html(results.timeToForm.toExponential(5));
+            $("#timeToForm-cgs").html(results.timeToForm_cgs.toExponential(5));
+            $("#evaporationTime").html(results.evaporationTime.toExponential(5));
+            $("#evaporationTime-cgs").html(results.evaporationTime_cgs.toExponential(5));
         });
 
         function ShowInputs() {
