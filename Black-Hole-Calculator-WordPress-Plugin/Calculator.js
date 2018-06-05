@@ -61,7 +61,7 @@
                 timeToForm: 4.5e-2 * Math.log(mbh/mSeed),
                 timeToForm_cgs: 1.41912e+15 * Math.log(mbh / mSeed),
                 evaporationTime: 2.74606799e-43 * Math.pow((mbh * 1.989e33), 3),
-                evaporationTime_cgs: Math.pow(8.66e-27 * (mbh * 1.989e33), 3)
+                evaporationTime_cgs: 8.66e-27 * Math.pow((mbh * 1.989e33), 3)
             };
         }
 
