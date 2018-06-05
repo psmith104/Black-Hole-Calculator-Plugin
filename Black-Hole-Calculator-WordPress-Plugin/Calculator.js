@@ -90,7 +90,7 @@
             if (isNaN(formattedResult)) {
                 formattedResult = 0;
             }
-            formattedResult = result.toExponential(numberOfDecimals);
+            formattedResult = (formattedResult != 0) ? result.toExponential(numberOfDecimals) : 0;
             formattedResult = formattedResult.replace("e+0", "");
             if (formattedResult.includes("e"))
             {
