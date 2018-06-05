@@ -30,6 +30,13 @@
             ShowResult("#eddingtonRate-cgs", results.eddingtonRate_cgs);
             ShowResult("#eventHorizonRadius", results.eventHorizonRadius);
             ShowResult("#eventHorizonRadius-cgs", results.eventHorizonRadius_cgs);
+            if (results.timeToForm < 0) {
+                $("#timeToForm-result").addClass("d-none");
+                $("#timeToForm-error").removeClass("d-none");
+            } else {
+                $("#timeToForm-result").removeClass("d-none");
+                $("#timeToForm-error").addClass("d-none");
+            }
             ShowResult("#timeToForm", results.timeToForm);
             ShowResult("#timeToForm-cgs", results.timeToForm_cgs);
             ShowResult("#evaporationTime", results.evaporationTime);

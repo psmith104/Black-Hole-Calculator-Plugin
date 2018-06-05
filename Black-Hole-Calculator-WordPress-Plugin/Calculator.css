@@ -10,3 +10,7 @@
 .bootstrap-iso label {
     font-weight: bold;
 }
+
+.bootstrap-iso .error {
+    color: #9b2323;
+}
