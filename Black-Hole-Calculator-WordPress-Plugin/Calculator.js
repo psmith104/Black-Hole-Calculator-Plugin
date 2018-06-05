@@ -34,10 +34,6 @@
                 $("#timeToForm-result").addClass("d-none");
                 $("#timeToForm-error .error").html("Mass of the seed needs to be smaller than the final mass.");
                 $("#timeToForm-error").removeClass("d-none");
-            } else if (!isFinite(results.timeToForm)) {
-                $("#timeToForm-result").addClass("d-none");
-                $("#timeToForm-error .error").html("Mass of the seed is required.");
-                $("#timeToForm-error").removeClass("d-none");
             } else {
                 $("#timeToForm-result").removeClass("d-none");
                 $("#timeToForm-error").addClass("d-none");
