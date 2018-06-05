@@ -1,5 +1,7 @@
 (function ($) {
     $(function () {
+        var numberOfDecimals = 5;
+
         var advanced = false;
 
         $("#standard").on("change", function ()
@@ -21,30 +23,11 @@
 
             var results = PerformCalculations(mbh, mSeed);
 
-            $(".results-standard").removeClass("d-none");
-            if (advanced) $(".results-advanced").removeClass("d-none");
-
-            ShowResult("#eddingtonLuminosity", results.eddingtonLuminosity);
-            ShowResult("#eddingtonLuminosity-cgs", results.eddingtonLuminosity_cgs);
-            ShowResult("#eddingtonRate", results.eddingtonRate);
-            ShowResult("#eddingtonRate-cgs", results.eddingtonRate_cgs);
-            ShowResult("#eventHorizonRadius", results.eventHorizonRadius);
-            ShowResult("#eventHorizonRadius-cgs", results.eventHorizonRadius_cgs);
-            if (results.timeToForm < 0) {
-                $("#timeToForm-result").addClass("d-none");
-                $("#timeToForm-error .error").html("Mass of the seed needs to be smaller than the final mass.");
-                $("#timeToForm-error").removeClass("d-none");
-            } else {
-                $("#timeToForm-result").removeClass("d-none");
-                $("#timeToForm-error").addClass("d-none");
-            }
-            ShowResult("#timeToForm", results.timeToForm);
-            ShowResult("#timeToForm-cgs", results.timeToForm_cgs);
-            ShowResult("#evaporationTime", results.evaporationTime);
-            ShowResult("#evaporationTime-cgs", results.evaporationTime_cgs);
+            DisplayResults(results);            
         });
 
-        function ShowInputs() {
+        function ShowInputs()
+        {
             var $advancedInputs = $(".input-advanced");
             if (advanced)
             {
@@ -57,7 +40,7 @@
             }
         }
 
-        function PerformCalculations(mbh, mSeed = 1)
+        function PerformCalculations(mbh, mSeed)
         {
             return {
                 eddingtonLuminosity: 3.2e4 * mbh,
@@ -73,10 +56,40 @@
             };
         }
 
-        function ShowResult(selector, result) {
-            var formattedResult = result.toExponential(5);
+        function DisplayResults(results)
+        {
+            $(".results-standard").removeClass("d-none");
+            if (advanced) $(".results-advanced").removeClass("d-none");
+
+            ShowResult("#eddingtonLuminosity", results.eddingtonLuminosity);
+            ShowResult("#eddingtonLuminosity-cgs", results.eddingtonLuminosity_cgs);
+            ShowResult("#eddingtonRate", results.eddingtonRate);
+            ShowResult("#eddingtonRate-cgs", results.eddingtonRate_cgs);
+            ShowResult("#eventHorizonRadius", results.eventHorizonRadius);
+            ShowResult("#eventHorizonRadius-cgs", results.eventHorizonRadius_cgs);
+            if (results.timeToForm < 0)
+            {
+                $("#timeToForm-result").addClass("d-none");
+                $("#timeToForm-error .error").html("Mass of the seed needs to be smaller than the final mass.");
+                $("#timeToForm-error").removeClass("d-none");
+            }
+            else
+            {
+                $("#timeToForm-result").removeClass("d-none");
+                $("#timeToForm-error").addClass("d-none");
+            }
+            ShowResult("#timeToForm", results.timeToForm);
+            ShowResult("#timeToForm-cgs", results.timeToForm_cgs);
+            ShowResult("#evaporationTime", results.evaporationTime);
+            ShowResult("#evaporationTime-cgs", results.evaporationTime_cgs);
+        }
+
+        function ShowResult(selector, result)
+        {
+            var formattedResult = result.toExponential(numberOfDecimals);
             formattedResult = formattedResult.replace("e+0", "");
-            if (formattedResult.includes("e")) {
+            if (formattedResult.includes("e"))
+            {
                 formattedResult = formattedResult.replace("e", " x 10<sup>") + "</sup>";
                 formattedResult = formattedResult.replace("+", "");
             }
