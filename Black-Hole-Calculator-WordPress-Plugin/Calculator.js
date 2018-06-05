@@ -86,7 +86,11 @@
 
         function ShowResult(selector, result)
         {
-            var formattedResult = result.toExponential(numberOfDecimals);
+            var formattedResult = result;
+            if (IsNaN(formattedResult)) {
+                formattedResult = 0;
+            }
+            formattedResult = result.toExponential(numberOfDecimals);
             formattedResult = formattedResult.replace("e+0", "");
             if (formattedResult.includes("e"))
             {
