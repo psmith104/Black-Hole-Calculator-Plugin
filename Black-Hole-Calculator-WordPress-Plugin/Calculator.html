@@ -1,11 +1,11 @@
 <section class="bootstrap-iso">
     <div id="input-section" class="section p-2 m-2">
         <div class="container-fluid">
-            <p>The Black Hole Calculator computes relevant quantities about black holes in two systems of units.</p>
+            <p>The Black Hole Calculator computes relevant quantities about black holes in two systems of units. Add the inputs and press Calculate. Two calculator modes are available.</p>
             <p class="text-center"><b>Standard Mode</b></p>
-            <p><b>Input:</b> Black hole mass<br/><b>Outputs:</b> Eddington luminosity, Eddington accretion rate, Event horizon radius</p>
+            <p><b>Input:</b> Black hole mass<br/><b>Outputs:</b> Category, Eddington luminosity, Eddington accretion rate, Event horizon radius, ISCO radius</p>
             <p class="text-center"><b>Advanced Mode</b></p>
-            <p><b>Inputs:</b> Black hole mass, Black hole seed mass<br /><b>Outputs:</b> Eddington luminosity, Eddington accretion rate, Event horizon radius, Formation time, Evaporation time</p>
+            <p><b>Inputs:</b> Black hole mass, Black hole seed mass<br /><b>Outputs:</b> Category, Eddington luminosity, Eddington accretion rate, Event horizon radius, ISCO radius, Formation time, Hawking temperature, Evaporation time, Surface area, Surface gravity</p>
             <div class="col-12 text-right">
                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label class="btn btn-secondary active">
@@ -19,18 +19,18 @@
         </div>
         <div class="container-fluid">
             <div class="form-group row input-standard m-2">
-                <label for="blackHoleMass" class="col-sm-2 col-form-label p-0">Black Hole Mass [M<sub>&#9737;</sub>]</label>
+                <label for="blackHoleMass" class="col-sm-2 col-form-label p-0">Black hole mass [M<sub>&#9737;</sub>]</label>
                 <div class="input-group  col-sm-10 mb-3">
-                    <input type="text" class="form-control" id="blackHoleMass">
+                    <input type="text" class="form-control" id="blackHoleMass" value="0">
                     <div class="input-group-append">
                         <span class="input-group-text">M<sub>BH</sub></span>
                     </div>
                 </div>
             </div>
             <div class="form-group row input-advanced d-none m-2">
-                <label for="massOfSeed" class="col-sm-2 col-form-label p-0">Mass of the seed [M<sub>&#9737;</sub>]</label>
+                <label for="massOfSeed" class="col-sm-2 col-form-label p-0">Seed mass [M<sub>&#9737;</sub>]</label>
                 <div class="input-group  col-sm-10 mb-3">
-                    <input type="text" class="form-control" id="massOfSeed">
+                    <input type="text" class="form-control" id="massOfSeed" value="0">
                     <div class="input-group-append">
                         <span class="input-group-text">M<sub>seed</sub></span>
                     </div>
@@ -43,7 +43,14 @@
             </div>
         </div>
     </div>
-
+    <div class="results-standard d-none section p-2 m-2 container-fluid">
+      <label>Category:</label>
+      <div class="row">
+        <div class="col-12 text-center">
+          <span id="category"></span>
+        </div>
+      </div>
+    </div>
     <div class="results-standard d-none section p-2 m-2 container-fluid">
         <label>Eddington luminosity:</label>
         <div class="row">
@@ -77,6 +84,17 @@
             </div>
         </div>
     </div>
+    <div class="results-standard d-none section p-2 m-2 container-fluid">
+        <label>Innermost stable circular orbit radius:</label>
+        <div class="row">
+            <div class="col-6">
+                <span id="iscoRadius"></span> [km]
+            </div>
+            <div class="col-6">
+                <span id="iscoRadius-cgs"></span> [cm]
+            </div>
+        </div>
+    </div>
     <div class="results-advanced d-none section p-2 m-2 container-fluid">
         <label>Time to form (assuming continuous accretion at the Eddington rate):</label>
         <div id="timeToForm-error" class="row d-none">
@@ -94,6 +112,14 @@
         </div>
     </div>
     <div class="results-advanced d-none section p-2 m-2 container-fluid">
+        <label>Hawking temperature:</label>
+        <div class="row">
+            <div class="col-12">
+                <span id="hawkingTemperature"></span> [K]
+            </div>
+        </div>
+    </div>
+    <div class="results-advanced d-none section p-2 m-2 container-fluid">
         <label>Evaporation time:</label>
         <div class="row">
             <div class="col-6">
@@ -101,6 +127,28 @@
             </div>
             <div class="col-6">
                 <span id="evaporationTime-cgs"></span> [s]
+            </div>
+        </div>
+    </div>
+    <div class="results-advanced d-none section p-2 m-2 container-fluid">
+        <label>Surface area:</label>
+        <div class="row">
+            <div class="col-6">
+                <span id="surfaceArea"></span> [km<sup>2</sup>]
+            </div>
+            <div class="col-6">
+                <span id="surfaceArea-cgs"></span> [cm<sup>2</sup>]
+            </div>
+        </div>
+    </div>
+    <div class="results-advanced d-none section p-2 m-2 container-fluid">
+        <label>Surface gravity:</label>
+        <div class="row">
+            <div class="col-6">
+                <span id="surfaceGravity"></span> [km s<sup>-2</sup>]
+            </div>
+            <div class="col-6">
+                <span id="surfaceGravity-cgs"></span> [cm s<sup>-2</sup>]
             </div>
         </div>
     </div>

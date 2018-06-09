@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name:  Black Hole Calculator
-Description:  Black Hole Calculator developed for Fabio Pacucci by Patrick M Smith
+Description:  Black Hole Calculator developed by Patrick M Smith and Fabio Pacucci
 */
 
 /* [BlackHoleCalculator] */
